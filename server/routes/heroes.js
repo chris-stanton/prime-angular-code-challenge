@@ -13,7 +13,7 @@ router.use(bodyParser.json());
 router.get('/', function (req, res) {
   pool.connect()
     .then(function (client) {
-//joins super_powers to heroes table.  The practice from last weeks group project helped tremendiosly with getting this line
+//joins super_powers to heroes table.  The practice from last weeks group project helped tremendiously with getting this line
       client.query('SELECT heroes.*, super_powers.name, super_powers.description FROM heroes JOIN super_powers ON heroes.power_id = super_powers.id')
         .then(function (result) {
           client.release();
@@ -29,7 +29,7 @@ router.get('/', function (req, res) {
 //adds heroes data to table
 router.post('/', function (req, res) {
   var newHero = req.body;
-  console.log('New Hero: ', newHero);
+  console.log('add Hero: ', newHero);
   pool.connect()
     .then(function (client) {
 //adds heroes data to table
@@ -46,11 +46,13 @@ router.post('/', function (req, res) {
     });//end of .then
 });//end of router.post
 
+//delete super heroes
 router.delete('/:id', function(req, res) {
   var heroId = req.params.id;
-  console.log('Deleting hero ID:, ', heroId);
+  console.log('deleting super_heroes: ', heroId);
   pool.connect()
     .then(function (client) {
+//deletes hero based off ID
       client.query('DELETE FROM heroes WHERE id = $1',
         [heroId])
         .then(function (result) {
@@ -64,10 +66,11 @@ router.delete('/:id', function(req, res) {
     });//end of .then
 });//end of router.delete
 
+//adds data to database
 router.put('/:id', function(req, res) {
   var heroId = req.params.id;
   var hero = req.body;
-  console.log('Updating hero:, ', hero);
+  console.log('add hero: ', hero);
   pool.connect()
     .then(function (client) {
       client.query('UPDATE heroes SET persona = $1, alias = $2, power_id = $3 WHERE id = $4',
