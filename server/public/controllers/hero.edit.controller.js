@@ -2,7 +2,7 @@ app.controller("HeroEditController", ["$http", function($http) {
   console.log("HeroEditController is working");
 
   var self = this;
-  //container
+//container
   self.heroes = [];
 //calls getHeroes()
   getHeroes();

@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
   pool.connect()
     .then(function (client) {
 //joins super_powers to heroes table.  The practice from last weeks group project helped tremendiously with getting this line
-      client.query('SELECT heroes.*, super_powers.name, super_powers.description FROM heroes JOIN super_powers ON heroes.power_id = super_powers.id')
+      client.query('SELECT heroes.*, super_powers.name, super_powers.description FROM heroes JOIN super_powers ON heroes.power_id=super_powers.id')
         .then(function (result) {
           client.release();
           res.send(result.rows);
