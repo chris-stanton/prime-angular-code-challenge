@@ -1,7 +1,8 @@
 app.controller("HeroEntryController", ["$http", function($http) {
-  console.log("HERO ENTRY CONTROLLER IS RUNNING!");
+  console.log("HeroEntryController is working");
 
   var self = this;
+  //containers
   self.newHero = {};
   self.powers = [];
 
@@ -12,8 +13,8 @@ app.controller("HeroEntryController", ["$http", function($http) {
       .then(function(response) {
         console.log("New hero added to database!");
         self.newHero = {};
-      })//end then
-  }
+      })//end of .then
+  }//end of addHero()
 
   function getPowers() {
     $http.get('/powers')
@@ -21,5 +22,5 @@ app.controller("HeroEntryController", ["$http", function($http) {
         self.powers = response.data;
         console.log("Got powers from database");
       })//end then
-  }
+  }//end of getPowers()
 }]);//end controller

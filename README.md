@@ -27,6 +27,8 @@ Run the sql in `database.sql`.
 
 
 --------------------------------------------------------------------------------------------------------
+Assessment Details from the Assignment Web-App:
+
 
 Assignment Details:
 https://github.com/kdszafranski/prime-angular-code-challenge/
@@ -65,10 +67,11 @@ Required fields:
 persona : this is the hero's super hero name. It must be unique.
 alias : this is the hero's true name, if known.
 power_id : this is the hero's main super power as chosen from a list of possible powers. The power_id can just be a number input for base mode (pro mode upgrades this to a dropdown select). This power_id must match an id in the super_powers table. Not ideal because the user will have to guess the id for the power, but good enough for now.
-HARD Mode
+
+HARD Mode:
 Improve our Listing route to include the ability for the Hero information to be edited (but not the list of powers). The server has an endpoint for updating a hero but it is untested. Have a look and change what you need.
 
-PRO Mode
+PRO Mode:
 The power should be selectable from a drop-down list. This power_id must match an id in the super_powers table.
 
 ULTRA-PRO Mode
