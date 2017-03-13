@@ -10,11 +10,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="super_hero in edit.heroes | orderBy:'power_id'">
-        <td>{{super_hero.persona}}</td>
-        <td>{{super_hero.alias}}</td>
-        <td>{{super_hero.power_id}}</td>
-        <td>{{super_hero.description}}</td>
+      <tr ng-repeat="hero in edit.heroes | orderBy:'power_id'">
+        <td>{{hero.persona}}</td>
+        <td>{{hero.alias}}</td>
+        <td>{{hero.power_id}}</td>
+        <td>{{hero.description}}</td>
         <td><button ng-click="edit.deleteHero(hero)">REMOVE</button></td>
       </tr>
     </tbody>
