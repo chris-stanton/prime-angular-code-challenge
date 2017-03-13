@@ -4,16 +4,16 @@ var config = require('../config/config.js');
 var pg = require('pg');
 var bodyParser = require('body-parser');
 
-var pool = new pg.Pool({
-  database: config.database
-});
+var pool = new pg.Pool(config);
 
+//needed for angular-routing
 router.use(bodyParser.json());
 
-// return all heroes
+//returns all heroes and powers
 router.get('/', function (req, res) {
   pool.connect()
     .then(function (client) {
+//joins super_powers to heroes table.  The practice from last weeks group project helped tremendiosly with getting this line
       client.query('SELECT heroes.*, super_powers.name, super_powers.description FROM heroes JOIN super_powers ON heroes.power_id = super_powers.id')
         .then(function (result) {
           client.release();
@@ -22,15 +22,17 @@ router.get('/', function (req, res) {
         .catch(function (err) {
           console.log('error on SELECT', err);
           res.sendStatus(500);
-        });
-    });
-});
+        });//end of .catch
+    });//end of .then
+});//end of router.get
 
+//adds heroes data to table
 router.post('/', function (req, res) {
   var newHero = req.body;
   console.log('New Hero: ', newHero);
   pool.connect()
     .then(function (client) {
+//adds heroes data to table
       client.query('INSERT INTO heroes (persona, alias, power_id) VALUES ($1, $2, $3)',
         [newHero.persona, newHero.alias, newHero.power])
         .then(function (result) {
@@ -40,9 +42,9 @@ router.post('/', function (req, res) {
         .catch(function (err) {
           console.log('error on INSERT', err);
           res.sendStatus(500);
-        });
-    });
-});
+        });//end of .catch
+    });//end of .then
+});//end of router.post
 
 router.delete('/:id', function(req, res) {
   var heroId = req.params.id;
@@ -58,9 +60,9 @@ router.delete('/:id', function(req, res) {
         .catch(function (err) {
           console.log('error on SELECT', err);
           res.sendStatus(500);
-        });
-    });
-});
+        });//end of .catch
+    });//end of .then
+});//end of router.delete
 
 router.put('/:id', function(req, res) {
   var heroId = req.params.id;
@@ -77,9 +79,9 @@ router.put('/:id', function(req, res) {
         .catch(function (err) {
           console.log('error on UPDATE', err);
           res.sendStatus(500);
-        });
-    });
-});
+        });//end of router.put
+    });//end of .then
+});//end of router.put
 
 
 module.exports = router;
