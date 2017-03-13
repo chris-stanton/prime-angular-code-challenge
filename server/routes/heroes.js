@@ -1,6 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var pool = require('../config/database-pool.js'); // Creates database pool, if you need to change database, do it in the config object in this file
+var config = require('../config/config.js');
+var pg = require('pg');
+var bodyParser = require('body-parser');
+
+var pool = new pg.Pool({
+  database: config.database
+});
+
+router.use(bodyParser.json());
 
 // return all heroes
 router.get('/', function (req, res) {
@@ -24,7 +32,7 @@ router.post('/', function (req, res) {
   pool.connect()
     .then(function (client) {
       client.query('INSERT INTO heroes (persona, alias, power_id) VALUES ($1, $2, $3)',
-        [newHero.persona, newHero.alias, newHero.power_id])
+        [newHero.persona, newHero.alias, newHero.power])
         .then(function (result) {
           client.release();
           res.sendStatus(201);

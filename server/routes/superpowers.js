@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var pool = require('../config/database-pool.js'); // Creates database pool, if you need to change database, do it in the config object in this file
+var config = require('../config/config.js');
+var pg = require('pg');
+
+var pool = new pg.Pool({
+  database: config.database
+});
 
 // return all super power names
 router.get('/', function (req, res) {

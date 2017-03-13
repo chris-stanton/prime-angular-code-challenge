@@ -5,7 +5,6 @@ app.controller("HeroEntryController", ["$http", function($http) {
   self.newHero = {};
   self.powers = [];
 
-//calling get powers function
   getPowers();
 
   self.addHero = function() {
@@ -13,14 +12,14 @@ app.controller("HeroEntryController", ["$http", function($http) {
       .then(function(response) {
         console.log("New hero added to database!");
         self.newHero = {};
-      })//end of .then
-  }//end of self.addHero
+      })//end then
+  }
 
   function getPowers() {
     $http.get('/powers')
       .then(function(response) {
         self.powers = response.data;
         console.log("Got powers from database");
-      })//end of .end then
-  }//end of getPowers()
+      })//end then
+  }
 }]);//end controller
