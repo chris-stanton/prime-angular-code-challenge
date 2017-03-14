@@ -1,13 +1,23 @@
 body {
-  /*background-image: url('../assets/images/background.jpeg');*/
+  background-image: url('../assets/images/background.jpeg');
+  background-size: 100%;
 }
 
 h1 {
-  color: red;
-  text-shadow: 2px 2px #b4b4b4;
+  color: #1468e7;
+  text-shadow: 2px 2px #24ee08;
   box-shadow: 0px 1px 2px 1px rgba(135, 182, 245, 0.1) inset, 0px -2px 20px #24ee08, 0px 1px 5px rgba(135, 182, 245, 0.1), 0px 2px 10px rgba(135, 182, 245, 0.1);
 }
 
+/*entry slecter drop down*/
+#entrySelect {
+  background-color: transparent;
+  border: 1px solid #24ee08;
+  color: #f4ece4;
+  outline: none;
+}
+
+/*input fields*/
 input {
   background-color: transparent;
   border: 1px solid #24ee08;
@@ -15,11 +25,22 @@ input {
   outline: none;
 }
 
-buttons {
-
+/*entry button*/
+#entryButton {
+  color: #f00808;
  }
 
- button:active{
+/*button:active{
    background-color: #000000;
    box-shadow: 0px 1px 2px rgba(135, 182, 245, 0.1) inset, 0px -2px 20px #24ee08, 0px 1px 5px rgba(135, 182, 245, 0.1), 0px 2px 10px rgba(135, 182, 245, 0.1);
- }
+ }*/
+
+/*table buttons*/
+#heroRemove {
+  color: #f00808;
+}
+
+/*navigation tabs*/
+.navigation {
+  color: #f00808;
+}
