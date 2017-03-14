@@ -2,9 +2,9 @@
 <div id="heroEntry">
 <!-- allows enter key to work   -->
   <form ng-submit="entry.addHero()">
-    <input type="text" placeholder="Persona" ng-model="entry.newHero.persona" />
-    <input type="text" placeholder="Alias" ng-model="entry.newHero.alias" />
-<!-- line gives an option selector for super_powers / not sure this is the best way (took a while tp figure out) -->
+    <input type="text" placeholder="Persona" ng-model="entry.newHero.persona"/>
+    <input type="text" placeholder="Alias" ng-model="entry.newHero.alias"/>
+<!-- line gives an option selector for super_powers / not sure this is the best way (took a while tp figure out) / track by allows duplicates -->
     <select  ng-options="power.id as power.name for power in entry.powers track by power.id" ng-model="entry.newHero.power"></select>
     <input type="submit" value="submit new hero"/>
   </form>

@@ -21,4 +21,4 @@ app.controller("HeroEditController", ["$http", function($http) {
         getHeroes();
       })//end of .then
   }//end of self.deleteHero()
-}]);//end controller
+}]);//end of controller

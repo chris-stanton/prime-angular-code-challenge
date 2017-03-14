@@ -21,6 +21,6 @@ app.controller("HeroEntryController", ["$http", function($http) {
       .then(function(response) {
         self.powers = response.data;
         console.log("Got powers from database");
-      })//end then
+      })//end .then
   }//end of getPowers()
 }]);//end controller
